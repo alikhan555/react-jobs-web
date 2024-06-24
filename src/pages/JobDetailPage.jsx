@@ -1,8 +1,19 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { FaArrowLeft, FaMapMarker } from "react-icons/fa";
+import { toast } from "react-toastify";
 
-const JobDetailPage = () => {
+const JobDetailPage = ({ httpDelete }) => {
   let job = useLoaderData();
+  let { id } = useParams();
+  let navigate = useNavigate();
+
+  const onClickDeleteJob = async () => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      httpDelete(`/jobsApi/jobs/${id}`);
+      toast.success("Job deleted successfully.");
+      return navigate("/jobs/");
+    }
+  };
 
   return (
     <div>
@@ -70,13 +81,16 @@ const JobDetailPage = () => {
 
               <div className="bg-white p-6 rounded-lg shadow-md mt-6">
                 <h3 className="text-xl font-bold mb-6">Manage Job</h3>
-                <a
-                  href="/add-job.html"
+                <Link
+                  to={`/EditJob/${id}`}
                   className="bg-indigo-500 hover:bg-indigo-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >
                   Edit Job
-                </a>
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block">
+                </Link>
+                <button
+                  className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
+                  onClick={onClickDeleteJob}
+                >
                   Delete Job
                 </button>
               </div>
