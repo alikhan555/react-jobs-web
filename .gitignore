@@ -22,3 +22,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/api/JobsApi/.vs
+/api/JobsApi/BLL/obj
+/api/JobsApi/JobsApi/bin
+/api/JobsApi/JobsApi/obj
+*.pubxml
+*.user
+/api/JobsApi/JobsApi/appsettings.Development.json
+/api/JobsApi/JobsApi/appsettings.json
+/api/JobsApi/JobsApi/Properties/launchSettings.json
+/api/JobsApi/JobsApi.BLL/bin
+/api/JobsApi/JobsApi.BLL/obj
+/api/JobsApi/JobsApi.DLL/bin
+/api/JobsApi/JobsApi.DLL/obj
