@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { baseUrl } from "../helpers/urlHelper";
 
 const AddJob = ({ httpPost }) => {
   const [jobType, setJobType] = useState("Full-Time");
@@ -15,7 +16,7 @@ const AddJob = ({ httpPost }) => {
 
   const navigate = useNavigate();
 
-  const addJob = (e) => {
+  const addJob = async (e) => {
     e.preventDefault();
 
     let newJob = {
@@ -24,15 +25,13 @@ const AddJob = ({ httpPost }) => {
       description: jobDescription,
       location: jobLocation,
       salary: jobSalary,
-      company: {
-        name: jobCompanyName,
-        description: jobCompanyDescription,
-        contactEmail: jobCompanyContactEmail,
-        contactPhone: jobCompanyPhone,
-      },
+      companyName: jobCompanyName,
+      companyDescription: jobCompanyDescription,
+      companyContactEmail: jobCompanyContactEmail,
+      companyContactPhone: jobCompanyPhone,
     };
 
-    httpPost("/jobsApi/jobs", newJob);
+    await httpPost(`${baseUrl}/jobs`, newJob);
     toast.success("Job added successfully.");
     return navigate("/jobs");
   };

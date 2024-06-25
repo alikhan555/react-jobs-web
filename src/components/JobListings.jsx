@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import JobListing from "./JobListing";
 import Spinner from "./Spinner";
+import { baseUrl } from "../helpers/urlHelper";
 
 const JobListings = ({ maxLimit = 0, heading = "Browse Jobs" }) => {
   const [jobs, setJobs] = useState([]);
@@ -10,7 +11,7 @@ const JobListings = ({ maxLimit = 0, heading = "Browse Jobs" }) => {
     const fetchJobs = async () => {
       try {
         const response = await fetch(
-          `/jobsApi/jobs${maxLimit > 0 ? `?_limit=${maxLimit}` : ""}`
+          `${baseUrl}/jobs${maxLimit > 0 ? `?_limit=${maxLimit}` : ""}`
         );
         const data = await response.json();
         setJobs(data);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { baseUrl } from "../helpers/urlHelper";
 
 const EditJob = ({ httpPUT }) => {
   const job = useLoaderData();
@@ -9,21 +10,21 @@ const EditJob = ({ httpPUT }) => {
   const [jobDescription, setJobDescription] = useState(job.description);
   const [jobSalary, setJobSalary] = useState(job.salary);
   const [jobLocation, setJobLocation] = useState(job.location);
-  const [jobCompanyName, setJobCompanyName] = useState(job.company.name);
+  const [jobCompanyName, setJobCompanyName] = useState(job.companyName);
   const [jobCompanyDescription, setJobCompanyDescription] = useState(
-    job.company.description
+    job.companyDescription
   );
   const [jobCompanyContactEmail, setJobCompanyContactEmail] = useState(
-    job.company.contactEmail
+    job.companyContactEmail
   );
   const [jobCompanyPhone, setJobCompanyPhone] = useState(
-    job.company.contactPhone
+    job.companyContactPhone
   );
 
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const updateJob = (e) => {
+  const updateJob = async (e) => {
     e.preventDefault();
 
     let updatedJob = {
@@ -32,15 +33,13 @@ const EditJob = ({ httpPUT }) => {
       description: jobDescription,
       location: jobLocation,
       salary: jobSalary,
-      company: {
-        name: jobCompanyName,
-        description: jobCompanyDescription,
-        contactEmail: jobCompanyContactEmail,
-        contactPhone: jobCompanyPhone,
-      },
+      companyName: jobCompanyName,
+      companyDescription: jobCompanyDescription,
+      companyContactEmail: jobCompanyContactEmail,
+      companyContactPhone: jobCompanyPhone,
     };
 
-    httpPUT(`/jobsApi/jobs/${id}`, updatedJob);
+    await httpPUT(`${baseUrl}/jobs/${id}`, updatedJob);
     toast.success("Job updated successfully.");
     return navigate(`/jobs/${id}`);
   };
