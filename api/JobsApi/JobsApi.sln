@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsApi", "JobsApi\JobsApi.csproj", "{D6F4252E-14C2-4973-8BF8-6B1764BE4678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsApi.BLL", "JobsApi.BLL\JobsApi.BLL.csproj", "{397243D7-F73F-4691-BF3B-FB2EC7EBF555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobsApi.DLL", "JobsApi.DLL\JobsApi.DLL.csproj", "{D9716D0C-8DBA-4558-84E5-01085BF2FE44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6F4252E-14C2-4973-8BF8-6B1764BE4678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6F4252E-14C2-4973-8BF8-6B1764BE4678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6F4252E-14C2-4973-8BF8-6B1764BE4678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6F4252E-14C2-4973-8BF8-6B1764BE4678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{397243D7-F73F-4691-BF3B-FB2EC7EBF555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{397243D7-F73F-4691-BF3B-FB2EC7EBF555}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{397243D7-F73F-4691-BF3B-FB2EC7EBF555}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{397243D7-F73F-4691-BF3B-FB2EC7EBF555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9716D0C-8DBA-4558-84E5-01085BF2FE44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9716D0C-8DBA-4558-84E5-01085BF2FE44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9716D0C-8DBA-4558-84E5-01085BF2FE44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9716D0C-8DBA-4558-84E5-01085BF2FE44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
